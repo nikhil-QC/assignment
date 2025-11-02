@@ -8,16 +8,6 @@ header{
   margin-bottom:35px;
 }
 
-.title{
-  font-size: 28px;
-  font-weight: 500;
-}
-
-header small{
-   font-size: 16px;
-  color: #57667c;
-}
-
 .stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -62,7 +52,6 @@ header small{
 }
 
 
-/* --- Layout --- */
 .dashboard-container {
   display: grid;
   grid-template-columns: 50% 50%;

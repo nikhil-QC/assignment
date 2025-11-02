@@ -5,3 +5,13 @@
     box-sizing: border-box;
     font-family: "Poppins";
 }
+
+.title{
+  font-size: 28px;
+  font-weight: 500;
+}
+
+header small{
+   font-size: 16px;
+  color: #57667c;
+}

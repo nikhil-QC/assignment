@@ -2,10 +2,9 @@
   <div class="topContent">
     <header>
       <p class="title">Certificates</p>
-      <small>Manage your digital certificates
-      </small>
+      <small>Manage your digital certificates</small>
     </header>
-    <button class="btn">
+    <button class="btn" (click)="openForm()">
       <span>+</span>
       <p>Add Certificate</p>
     </button>
@@ -36,7 +35,7 @@
           <td>GlobalSign</td>
           <td>3/1/2024, 3:30:00 AM</td>
           <td>3/1/2025, 3:30:00 AM</td>
-          <td><span class="status expired">EXPIRED</span></td>
+          <td><span class="status active">ACTIVE</span></td>
         </tr>
         <tr>
           <td>Development Certificate</td>
@@ -49,3 +48,29 @@
     </table>
   </div>
 </div>
+
+<div class="modal" [class.active]="showForm" (click)="onBackgroundClick($event)">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <span class="close-btn" (click)="closeForm()">×</span>
+    <h3>Add Certificate</h3>
+
+    <form (ngSubmit)="createCertificate()" #certificateForm="ngForm">
+      <label>Certificate Name:</label>
+      <input type="text" name="certificateName" [(ngModel)]="certificate.certificateName" required />
+
+      <label>Issuer Name:</label>
+      <input type="text" name="issuerName" [(ngModel)]="certificate.issuerName" required />
+
+      <label>Valid From:</label>
+      <input type="datetime-local" name="validFrom" [(ngModel)]="certificate.validFrom" readonly />
+
+      <label>Valid To:</label>
+      <input type="datetime-local" name="validTo" [(ngModel)]="certificate.validTo" readonly />
+
+      <button type="submit">
+        Create Certificate
+      </button>
+    </form>
+  </div>
+</div>
+

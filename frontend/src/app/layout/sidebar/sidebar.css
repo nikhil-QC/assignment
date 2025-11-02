@@ -20,17 +20,13 @@
 }
 
 lucide-icon{
-    /* border: 1px solid red; */
     display: flex;
 }
 
 .logo {
     display: flex;
-    flex-direction: row;
     gap: 10px;
-    padding-bottom: 15px;
-    padding-left: 10px;
-    /* border: 1px solid red; */
+    padding: 0 0 15px 10px;
 }
 
 
@@ -39,7 +35,7 @@ lucide-icon{
   font-weight: 600;
 }
 
-.logo small {
+small {
   font-size: 14px;
   color: #6f86a7;
 }
@@ -60,15 +56,9 @@ nav a {
   display: flex;
   align-items: center;
   gap: 10px;
-  transition: background-color 0.2s, color 0.2s;
 }
 
 nav a:hover {
   background-color: rgb(17, 38, 59);
 }
 
-nav a.active {
-  background-color: rgb(17, 38, 59);
-  font-weight: 600;
-  color: #fff;
-}

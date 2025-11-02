@@ -7,44 +7,28 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
-  /* border: 1px solid red; */
-}
-
-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.title {
-  font-size: 28px;
-  font-weight: 500;
 }
 
 header small {
-  font-size: 16px;
+  font-size: 15px;
   color: #57667c;
 }
 
-
-.page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.title {
+  font-size: 24px;
+  font-weight: 600;
 }
 
 .card {
-  background: white;
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 20px;
   margin-top: 20px;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .card-title {
-  font-size: 1.4rem;
-  font-weight: 400;
-  color: #1f2937;
+  font-size: 1.3rem;
+  font-weight: 500;
   margin-bottom: 25px;
 }
 
@@ -55,40 +39,32 @@ table {
 }
 
 th {
-  font-size: 16px;
-  color: #57667c;
-  font-weight: 400;
-
-}
-
-td {
-  font-weight: 400;
-  font-size: 16px;
-
-}
-
-th,
-td {
+  font-size: 15px;
+  color: #6b7280;
+  font-weight: 500;
+  border-bottom: 2px solid #e5e7eb;
   padding: 12px;
-  border-bottom: 1px solid #eee;
   text-align: left;
+}
 
+td {
+  font-size: 15px;
+  color: #374151;
+  padding: 12px;
+  border-bottom: 2px solid #e5e7eb;
 }
 
 .status {
   padding: 6px 12px;
   border-radius: 19px;
-   font-size: 12px;
+  font-size: 12px;
   font-weight: 500;
-
+  display: inline-block;
 }
-
 
 .status.active {
   background: #dcfce7;
   color: #16a34a;
-  margin-top: 4px;
-  display: inline-block;
   border: 1px solid #16a34a;
 }
 
@@ -98,34 +74,105 @@ td {
   border: 1px solid #b45309;
 }
 
-.status.expired{
-   background: rgb(250, 120, 120);
-  color: #ffffffe3;
-  border: 1px solid rgb(250, 4, 4);
+.status.expired {
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #dc2626;
 }
 
 .btn {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   background-color: #2563eb;
   color: white;
-  /* padding: 10px 16px;/ */
-  padding: 6px 12px;
-
+  padding: 8px 14px;
   border: none;
-  border-radius: 12px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
 .btn span {
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .btn p {
-  font-size: 16px;
+  font-size: 15px;
+  font-weight: 500;
 }
 
 .btn:hover {
   background-color: #1d4ed8;
+  transform: scale(1.03);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.45);
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(0.5px);
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: #ffffff;
+  padding: 30px 34px;
+  border-radius: 14px;
+  width: 420px;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  cursor: pointer;
+  font-size: 30px;
+  color: #000;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+input,
+select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  outline: none;
+  background-color: #fff;
+}
+
+button[type="submit"] {
+  margin-top: 16px;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  background: rgb(69, 69, 248);
+}
+
+button[type="submit"]:hover{
+  background-color: blue;
 }
