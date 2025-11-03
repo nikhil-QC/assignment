@@ -1,7 +1,7 @@
 package com.example.Assignment.model;
 
 import jakarta.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 public class Certificate {
@@ -11,8 +11,8 @@ public class Certificate {
 
     private String certificateName;
     private String issuerName;
-    private LocalDate validFrom;
-    private LocalDate validTo;
+    private LocalDateTime validFrom;
+    private LocalDateTime validTo;
     private String status = "ACTIVE";
 
     public Long getId() { return id; }
@@ -24,11 +24,11 @@ public class Certificate {
     public String getIssuerName() { return issuerName; }
     public void setIssuerName(String issuerName) { this.issuerName = issuerName; }
 
-    public LocalDate getValidFrom() { return validFrom; }
-    public void setValidFrom(LocalDate validFrom) { this.validFrom = validFrom; }
+    public LocalDateTime getValidFrom() { return validFrom; }
+    public void setValidFrom(LocalDateTime validFrom) { this.validFrom = validFrom; }
 
-    public LocalDate getValidTo() { return validTo; }
-    public void setValidTo(LocalDate validTo) { this.validTo = validTo; }
+    public LocalDateTime getValidTo() { return validTo; }
+    public void setValidTo(LocalDateTime validTo) { this.validTo = validTo; }
 
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }

@@ -12,7 +12,10 @@
 
   <div class="card">
     <h2 class="card-title">All Certificates</h2>
-    <table>
+
+    <div *ngIf="loading" class="loading">Loading certificates...</div>
+
+    <table *ngIf="!loading && certificates.length > 0">
       <thead>
         <tr>
           <th>Certificate Name</th>
@@ -23,29 +26,34 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Production SSL Certificate</td>
-          <td>DigiCert Inc.</td>
-          <td>1/15/2024, 3:30:00 AM</td>
-          <td>1/15/2025, 3:30:00 AM</td>
-          <td><span class="status active">ACTIVE</span></td>
-        </tr>
-        <tr>
-          <td>Code Signing Certificate</td>
-          <td>GlobalSign</td>
-          <td>3/1/2024, 3:30:00 AM</td>
-          <td>3/1/2025, 3:30:00 AM</td>
-          <td><span class="status active">ACTIVE</span></td>
-        </tr>
-        <tr>
-          <td>Development Certificate</td>
-          <td>Let’s Encrypt</td>
-          <td>10/1/2024, 3:30:00 AM</td>
-          <td>12/1/2024, 3:30:00 AM</td>
-          <td><span class="status expiring">EXPIRING SOON</span></td>
+        <tr *ngFor="let cert of paginatedCertificates">
+          <td>{{ cert.certificateName }}</td>
+          <td>{{ cert.issuerName }}</td>
+          <td>{{ cert.validFrom | date: 'dd/MM/yyyy, HH:mm' }}</td>
+          <td>{{ cert.validTo | date: 'dd/MM/yyyy, HH:mm' }}</td>
+          <td>
+            <span class="status" [ngClass]="{
+              'active': cert.status === 'ACTIVE',
+              'expired': cert.status === 'EXPIRED',
+              'expiring': cert.status === 'EXPIRING SOON'
+            }">
+              {{ cert.status }}
+            </span>
+          </td>
         </tr>
       </tbody>
     </table>
+
+    <div class="pagination" *ngIf="!loading && totalPages > 1">
+      <button class="btn" (click)="prevPage()" [disabled]="currentPage === 1">Prev</button>
+      <span class="page-info">Page {{ currentPage }}</span>
+      <button class="btn" (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+    </div>
+
+
+    <div *ngIf="!loading && certificates.length === 0" class="no-data">
+      No certificates available. Add one using the button above.
+    </div>
   </div>
 </div>
 
@@ -67,10 +75,7 @@
       <label>Valid To:</label>
       <input type="datetime-local" name="validTo" [(ngModel)]="certificate.validTo" readonly />
 
-      <button type="submit">
-        Create Certificate
-      </button>
+      <button type="submit">Create Certificate</button>
     </form>
   </div>
 </div>
-
